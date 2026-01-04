@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Hitung Determinan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5efe6;
+            color: #4b2e2e;
+        }
+        .container {
+            width: 480px;
+            margin: 70px auto;
+            padding: 30px;
+            background-color: #fff3e6;
+            border-radius: 14px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: 1px solid #c4a484;
+            font-size: 14px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #a47551;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            margin-top: 10px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #8b5e3c;
+        }
+        #hasil {
+            margin-top: 20px;
+            background-color: #fdf6f0;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Hitung Determinan</h2>
+
+    <label>Nilai A</label>
+    <input type="number" id="a">
+
+    <label>Nilai B</label>
+    <input type="number" id="b">
+
+    <label>Nilai C</label>
+    <input type="number" id="c">
+
+    <button onclick="hitungDeterminan()">Hitung</button>
+
+    <p id="hasil"></p>
+</div>
+
+<script>
+    function hitungDeterminan() {
+        var A = parseFloat(document.getElementById("a").value);
+        var B = parseFloat(document.getElementById("b").value);
+        var C = parseFloat(document.getElementById("c").value);
+
+        var D = (B * B) - (4 * A * C);
+        var ket = "";
+
+        if (D > 0) {
+            ket = "Determinan lebih dari nol, berada di atas garis kurva";
+        } else if (D == 0) {
+            ket = "Determinan sama dengan nol, berada di garis kurva";
+        } else {
+            ket = "Determinan kurang dari nol, berada di bawah garis kurva";
+        }
+
+        document.getElementById("hasil").innerHTML =
+            "Nilai Determinan = " + D + "<br>" + ket;
+    }
+</script>
+
+</body>
+</html>
